@@ -39,6 +39,21 @@ def downloadImages(url):
         # Move the image to the folder
         os.rename(image_name, "./" + folder + "/" + image_name)
 
+# Load photos from the folder /fr/Projet/fleurs
+def loadImages():
+    # Get the folder name
+    folder = createFolder()
+    # Load the images using the folder name
+    for i in range(1, 11):
+        # Get the image name
+        image_name = ".//fr/Projet/fleurs/fleur" + str(i) + ".jpg"
+        # Open the image
+        image = open(image_name, "rb")
+        # Save the image in the folder that we created
+        with open("./" + folder + "/" + image_name, "wb") as f:
+            f.write(image.read())
+loadImages()
+
 # Main function
 def main():
     # Get the url
@@ -47,6 +62,6 @@ def main():
     # Download the images
     downloadImages(url)
 
-main()
+# main()
 # https://static.theprint.in/wp-content/uploads/2020/12/randomnumber.jpg?compress=true&quality=80&w=800&dpr=2.0
 
